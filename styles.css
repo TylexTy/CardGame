@@ -5,14 +5,63 @@
 body {
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(1,4rem);
-    grid-template-rows: repeat(2,8rem);
+    grid-template-columns: repeat(2,4rem);
+    grid-template-rows: 7rem 2rem 7rem;
     gap: .5rem;
     justify-content: center;
+    text-align: center;
 }
 
-.card {
+.text {
+    grid-column: span 2;
+}
+
+.deck {
     height: 100%;
     width: 100%;
     border: 1px solid black;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color:white;
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color:red;
+}
+
+.card::before, .card::after {
+    position: absolute;
+    content: attr(data-value);
+    font-size: 1rem;
+}
+
+.card::before {
+    top:.3rem;
+    left:.3rem;
+}
+
+.card::after {
+    bottom: .3rem;
+    right: .3rem;
+    transform: rotate(180deg);
+}
+
+.deck-player {
+    background-color: green;
+}
+
+.deck-computer {
+    background-color: red;
 }
